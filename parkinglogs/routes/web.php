@@ -14,3 +14,6 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+// Car checking.
+$router->post('/checking', 'ParkingLogsController@checking');
