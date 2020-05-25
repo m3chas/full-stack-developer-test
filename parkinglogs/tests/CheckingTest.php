@@ -23,7 +23,7 @@ class CheckingTest extends TestCase
                 [
                     'status',
                     'plate_number',
-                    'checking_time',
+                    'checking',
                 ]
             ]    
         );

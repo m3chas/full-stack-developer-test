@@ -1,5 +1,7 @@
 <?php
 
+namespace App;
+
 use Jenssegers\Mongodb\Eloquent\Model;
 
 class ParkingLog extends Model
@@ -8,6 +10,5 @@ class ParkingLog extends Model
     protected $collection = 'parking_logs';
 
     // Set collection data to be used as dates on this Lumen service.
-    protected $dates = ['checking'];
-    protected $dates = ['checkout'];
+    protected $dates = ['checking', 'checkout'];
 }
