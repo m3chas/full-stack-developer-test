@@ -108,7 +108,7 @@ class ParkingLogsController extends Controller
                 break;
                 case 3:
                     // Calculate total based on total of minutes consumed.
-                    $data['total'] = $data['minutes'] * 0.05;
+                    $data['total'] = $data['minutes'] * 0.5;
                     $checking->status = 2;
                     $checking->checkout = $now;
                     $checking->minutes = $data['minutes'];

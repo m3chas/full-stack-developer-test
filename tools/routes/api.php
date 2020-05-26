@@ -16,3 +16,9 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// Generate a new payments report,
+Route::get('/payments', 'PaymentController@getPayments');
+
+// Restart values and start a new month.
+Route::get('/new', 'PaymentController@newMonth');
