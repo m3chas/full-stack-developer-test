@@ -1,30 +1,32 @@
 <?php
 
-namespace Tests\Unit;
+namespace Tests\Feature;
 
-use PHPUnit\Framework\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
+use Tests\TestCase;
 
 class VehicleTest extends TestCase
 {
     /**
-     * A basic unit test example.
+     * A basic test example.
      *
      * @return void
      */
-    public function testShouldGetVehicleType()
+    public function testGetVehicleType()
     {
+
         $parameters = [
             'plate_number' => 'TEST123TEST',
         ];
 
-        $this->post('type', $parameters);
-        $this->seeStatusCode(200);
-        $this->seeJsonStructure(
-            ['data' =>
+        $response = $this->postJson('/api/type', $parameters);
+        $response
+            ->assertStatus(200)
+            ->assertJson(['data' =>
                 [
-                    'type'
+                    'type',
                 ]
-            ]    
-        );
+            ]);
     }
 }
