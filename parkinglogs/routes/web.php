@@ -17,3 +17,6 @@ $router->get('/', function () use ($router) {
 
 // Car checking.
 $router->post('/checking', 'ParkingLogsController@checking');
+
+// Car checkout.
+$router->post('/checkout', 'ParkingLogsController@checkout');

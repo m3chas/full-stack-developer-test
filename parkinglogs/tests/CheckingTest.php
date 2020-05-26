@@ -28,4 +28,19 @@ class CheckingTest extends TestCase
             ]    
         );
     }
+
+    /**
+     * Test a new car checking log in Parking Logs.
+     *
+     * @return void
+     */
+    public function testShouldRegisterACheckoutLog()
+    {
+        $parameters = [
+            'plate_number' => 'TEST123TEST',
+        ];
+
+        $this->post('checkout', $parameters);
+        $this->seeStatusCode(200);
+    }
 }
