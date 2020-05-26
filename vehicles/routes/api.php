@@ -19,3 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 // Get vehicle type.
 $router->post('/type', 'VehicleController@getType');
+
+// Create a new vehicle on the system.
+$router->post('/create', 'VehicleController@create');

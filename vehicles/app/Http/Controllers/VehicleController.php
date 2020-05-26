@@ -30,8 +30,42 @@ class VehicleController extends Controller
             'error' => 0,
             'message' => 'Car checking added.',
             'data' => [
-                'type' => $vehicle->type,
-                'minutes_current_month' => $minutes_current_month,
+                'type' => $vehicle->type
+            ]
+        ]);
+    }
+
+    /**
+     * Create a new vehicle on the system.
+     *
+     * @param  Request  $request
+     * @return Response
+     */
+    public function create(Request $request)
+    {
+        // A simple check to avoid a checking for a car with an open transaction.
+        $checkIfVehicleExist = Vehicle::where('plate_number', $request->plate_number)->exists();
+        if ($checkIfVehicleExist) {
+            return response()->json([
+                'error' => 1,
+                'message' => 'This vehicle already exist on record.',
+                'data' => null
+            ]);
+        }
+
+        // Let's create a new vehicle on the system.
+        $vehicle = new Vehicle;
+        $vehicle->plate_number = $request->plate_number;
+        $vehicle->type = $request->type;
+        $vehicle->save();
+
+        // All went well, let's return a response.
+        return response()->json([
+            'error' => 0,
+            'message' => 'Vehicle created.',
+            'data' => [
+                'plate_number' => $vehicle->plate_number,
+                'type' => $vehicle->type
             ]
         ]);
     }

@@ -9,7 +9,7 @@ use Tests\TestCase;
 class VehicleTest extends TestCase
 {
     /**
-     * A basic test example.
+     * Get vehicle type of vehicle plate number
      *
      * @return void
      */
@@ -21,12 +21,23 @@ class VehicleTest extends TestCase
         ];
 
         $response = $this->postJson('/api/type', $parameters);
-        $response
-            ->assertStatus(200)
-            ->assertJson(['data' =>
-                [
-                    'type',
-                ]
-            ]);
+        $response->assertStatus(200);
+    }
+
+    /**
+     * Add a new vehicle on the system.
+     *
+     * @return void
+     */
+    public function testCreateVehicle()
+    {
+
+        $parameters = [
+            'plate_number' => 'TEST123TEST',
+            'type' => 1
+        ];
+
+        $response = $this->postJson('/api/create', $parameters);
+        $response->assertStatus(200);
     }
 }
