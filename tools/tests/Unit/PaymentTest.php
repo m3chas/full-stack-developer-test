@@ -16,7 +16,7 @@ class PaymentTest extends TestCase
     public function testGeneratePaymentsReport()
     {
 
-        $response = $this->getJson('/api/payments');
+        $response = $this->getJson('/api/tools/payments');
         $response->assertStatus(200);
     }
 
@@ -28,7 +28,7 @@ class PaymentTest extends TestCase
     public function testNewMonth()
     {
 
-        $response = $this->getJson('/api/new');
+        $response = $this->getJson('/api/tools/new');
         $response->assertStatus(200);
     }
 }

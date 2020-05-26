@@ -20,7 +20,7 @@ class VehicleTest extends TestCase
             'plate_number' => 'TEST123TEST',
         ];
 
-        $response = $this->postJson('/api/type', $parameters);
+        $response = $this->postJson('/api/vehicles/type', $parameters);
         $response->assertStatus(200);
     }
 
@@ -37,7 +37,7 @@ class VehicleTest extends TestCase
             'type' => 1
         ];
 
-        $response = $this->postJson('/api/create', $parameters);
+        $response = $this->postJson('/api/vehicles/create', $parameters);
         $response->assertStatus(200);
     }
 
@@ -53,7 +53,7 @@ class VehicleTest extends TestCase
             'plate_number' => 'TEST123TEST',
         ];
 
-        $response = $this->postJson('/api/minutes', $parameters);
+        $response = $this->postJson('/api/vehicles/minutes', $parameters);
         $response->assertStatus(200);
     }
 }

@@ -18,7 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 // Generate a new payments report,
-Route::get('/payments', 'PaymentController@getPayments');
+Route::get('/tools/payments', 'PaymentController@getPayments');
 
 // Restart values and start a new month.
-Route::get('/new', 'PaymentController@newMonth');
+Route::get('/tools/new', 'PaymentController@newMonth');

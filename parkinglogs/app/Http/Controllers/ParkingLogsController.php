@@ -138,7 +138,7 @@ class ParkingLogsController extends Controller
         try {
             // Let's make an HTTP request to our vehicle service.
             $this->http = new Client();
-            $response = $this->http->request('POST', env('VEHICLE_SERVICE_HOST') . ':' . env('VEHICLE_SERVICE_PORT') . '/api/type', [
+            $response = $this->http->request('POST', env('VEHICLE_SERVICE_HOST') . ':' . env('VEHICLE_SERVICE_PORT') . '/api/vehicles/type', [
                 'json' => [
                     'plate_number' => $plate_number
                 ]
@@ -170,7 +170,7 @@ class ParkingLogsController extends Controller
         try {
             // Let's make an HTTP request to our vehicle service.
             $this->http = new Client();
-            $response = $this->http->request('POST', env('VEHICLE_SERVICE_HOST') . ':' . env('VEHICLE_SERVICE_PORT') . '/api/minutes', [
+            $response = $this->http->request('POST', env('VEHICLE_SERVICE_HOST') . ':' . env('VEHICLE_SERVICE_PORT') . '/api/vehicles/minutes', [
                 'json' => [
                     'plate_number' => $plate_number,
                     'minutes' => $minutes

@@ -18,10 +18,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 // Get vehicle type.
-$router->post('/type', 'VehicleController@getType');
+$router->post('/vehicles/type', 'VehicleController@getType');
 
 // Create a new vehicle on the system.
-$router->post('/create', 'VehicleController@create');
+$router->post('/vehicles/create', 'VehicleController@create');
 
 // Update minutes counter on vehicle.
-$router->post('/minutes', 'VehicleController@updateMinutes');
+$router->post('/vehicles/minutes', 'VehicleController@updateMinutes');

@@ -16,7 +16,7 @@ class CheckingTest extends TestCase
             'plate_number' => 'TEST123TEST',
         ];
 
-        $this->post('checking', $parameters);
+        $this->post('parking/checking', $parameters);
         $this->seeStatusCode(200);
     }
 
@@ -31,7 +31,7 @@ class CheckingTest extends TestCase
             'plate_number' => 'TEST123TEST',
         ];
 
-        $this->post('checkout', $parameters);
+        $this->post('parking/checkout', $parameters);
         $this->seeStatusCode(200);
     }
 }
