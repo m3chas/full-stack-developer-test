@@ -40,4 +40,20 @@ class VehicleTest extends TestCase
         $response = $this->postJson('/api/create', $parameters);
         $response->assertStatus(200);
     }
+
+    /**
+     * Add a new vehicle on the system.
+     *
+     * @return void
+     */
+    public function testUpdateVehicleMinutes()
+    {
+
+        $parameters = [
+            'plate_number' => 'TEST123TEST',
+        ];
+
+        $response = $this->postJson('/api/minutes', $parameters);
+        $response->assertStatus(200);
+    }
 }

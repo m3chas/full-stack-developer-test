@@ -57,6 +57,7 @@ class VehicleController extends Controller
         $vehicle = new Vehicle;
         $vehicle->plate_number = $request->plate_number;
         $vehicle->type = $request->type;
+        $vehicle->minutes_current_month = 0;
         $vehicle->save();
 
         // All went well, let's return a response.
@@ -65,6 +66,38 @@ class VehicleController extends Controller
             'message' => 'Vehicle created.',
             'data' => [
                 'plate_number' => $vehicle->plate_number,
+                'type' => $vehicle->type
+            ]
+        ]);
+    }
+
+    /**
+     * Update vehicle minutes for current month.
+     *
+     * @param  Request  $request
+     * @return Response
+     */
+    public function updateMinutes(Request $request)
+    {
+        // Search vehicle based on plate number, if not found, return a not found response.
+        $vehicle = Vehicle::where('plate_number', $request->plate_number)->first();
+        if (!$vehicle) {
+            return response()->json([
+                'error' => 1,
+                'message' => 'Vehicle not found.',
+                'data' => null
+            ]);
+        }
+
+        // Update minutes_current_month on vehicle.
+        $vehicle->minutes_current_month = $vehicle->minutes_current_month + $request->minutes;
+        $vehicle->save();
+
+        // All went well, let's return a response.
+        return response()->json([
+            'error' => 0,
+            'message' => 'Car checking added.',
+            'data' => [
                 'type' => $vehicle->type
             ]
         ]);

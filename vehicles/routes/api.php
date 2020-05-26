@@ -22,3 +22,6 @@ $router->post('/type', 'VehicleController@getType');
 
 // Create a new vehicle on the system.
 $router->post('/create', 'VehicleController@create');
+
+// Update minutes counter on vehicle.
+$router->post('/minutes', 'VehicleController@updateMinutes');

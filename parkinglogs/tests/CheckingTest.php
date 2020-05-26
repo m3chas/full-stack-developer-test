@@ -18,15 +18,6 @@ class CheckingTest extends TestCase
 
         $this->post('checking', $parameters);
         $this->seeStatusCode(200);
-        $this->seeJsonStructure(
-            ['data' =>
-                [
-                    'status',
-                    'plate_number',
-                    'checking',
-                ]
-            ]    
-        );
     }
 
     /**
